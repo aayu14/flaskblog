@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Create POSTS{% endblock %} 
+
+{% block content %}
+
+ <!-- Page Header -->
+ <header class="masthead" style="background-image: url('../static/home-bg.jpg')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1>New Post</h1>
+          <span class="subheading">You can create a blog post here.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<h1>New Post</h1>
+<hr>
+    <!-- Main Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <form name="addForm" id="addForm" method="POST" action="{{ url_for('views.posts') }}" novalidate>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Title</label>
+                <input type="text" class="form-control" placeholder="Title" name="title" id="title" required data-validation-required-message="Please enter a title.">
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Subtitle</label>
+                <input type="text" class="form-control" placeholder="Subtitle" name="subtitle" id="subtitle" required data-validation-required-message="Please enter subtitle.">
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>HEADLINES</label>
+                <input type="text" class="form-control" placeholder="headline" name="headline" id="headline" required data-validation-required-message="Please enter headline.">
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group col-xs-12 floating-label-form-group controls">
+                <label>Author</label>
+                <input type="text" class="form-control" placeholder="Author" name="author" id="author" required data-validation-required-message="Please enter author.">
+                
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label>Blog Content</label>
+                <textarea rows="5" class="form-control" placeholder="Blog content" name="content" id="content" required data-validation-required-message="Please enter a content."></textarea>
+                
+              </div>
+            </div>
+            <br>
+            <div class="control-group">
+              <div class="form-group floating-label-form-group controls">
+                <label for="formFile" class="form-label">Image</label>
+                <input class="form-control" type="file" placeholder="Blog img"  id="formFile" name="img">                
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <button type="submit" class="btn btn-secondary" id="sendMessageButton">Send</button>
+            </div>
+            <div class="form-group">
+              <button type="clear" class="btn btn-secondary" id="clearButton">clear</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+    {% endblock %}
+   

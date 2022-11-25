@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}POSTS edit{% endblock %}
+ 
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1> Editing POSTS </h1>
+      <form name="addForm" id="addForm" method="POST" action="/posts/edit/{{post.id}}" novalidate>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Title</label>
+            <input type="text" class="form-control" placeholder="Title"  value="{{post.title}}"  name="title" id="title" required
+              data-validation-required-message="Please enter a title.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Subtitle</label>
+            <input type="text" class="form-control" placeholder="Subtitle"  value="{{post.subtitle}}" name="subtitle" id="subtitle" required
+              data-validation-required-message="Please enter your subtitle.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>HEADLINES</label>
+            <input type="text" class="form-control" placeholder="Headline"   value="{{post.headline}}" name="headline" id="headline" required
+              data-validation-required-message="Please enter your headline.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group col-xs-12 floating-label-form-group controls">
+            <label>Author</label>
+            <input type="text" class="form-control" placeholder="Author"  value="{{post.author}}" name="author" id="author" required
+              data-validation-required-message="Please enter author.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Blog Content</label>
+            <textarea rows="5" class="form-control" placeholder="Blog content"   name="content" id="content" required
+              data-validation-required-message="Please enter content.">{{post.content}}</textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+
+        
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label for="formFile" class="form-label">Image</label>
+            <input class="form-control" type="file" value="../static/{{ post.img }}" id="formFile" name="img">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <br>
+        <!-- <div id="success"></div> -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-secondary" id="sendMessageButton">Send</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+{% endblock %}
+
+

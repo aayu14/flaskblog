@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title  %}
+POSTS 
+{% endblock %}
+{% block content %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('../static/{{ post.img }}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <!-- <img src="{{ post.img }}" class="img-fluid" /> -->
+        <div class="post-heading">
+          <h1>{{ post.title }}</h1>
+          <h2 class="subheading">{{ post.subtitle }}</h2>
+          {% if post.author %}
+          <span class="meta">Posted by <strong>{{post.author}} </strong> on <strong> {{post.date_posted.strftime('%B %d,
+              %Y') }}</strong></span>
+          {% else %}
+          <h5><span class="meta">Posted by : N/A on <strong> {{post.date_posted.strftime('%B %d, %Y') }}</strong></span>
+          </h5>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <p style="white-space:pre-wrap">{{post.headline|safe}}{{post.content|safe}}</p>
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr>
+{% endblock %}
